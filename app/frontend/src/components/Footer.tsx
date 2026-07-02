@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Mail } from "lucide-react";
+import { Facebook, Instagram, Mail, Cross } from "lucide-react";
 
 export function Footer() {
   return (
@@ -18,10 +18,14 @@ export function Footer() {
                 Lolashi
               </span>
             </div>
-            <p className="text-white/70 text-sm leading-relaxed">
+            <p className="text-white/70 text-sm leading-relaxed mb-4" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
               Spreading the everlasting gospel of the Lord Jesus Christ through
               the written word.
             </p>
+            <div className="flex items-center gap-2 text-white/40 text-xs">
+              <Cross size={12} />
+              <span>Soli Deo Gloria</span>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -35,6 +39,7 @@ export function Footer() {
                 { path: "/book", label: "The Book" },
                 { path: "/about", label: "About Author" },
                 { path: "/order", label: "Order Now" },
+                { path: "/track-order", label: "Track Order" },
                 { path: "/contact", label: "Contact" },
                 { path: "/terms", label: "Terms & Conditions" },
               ].map((link) => (

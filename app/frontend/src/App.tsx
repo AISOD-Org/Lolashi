@@ -10,6 +10,8 @@ import Contact from "@/pages/Contact";
 import Terms from "@/pages/Terms";
 import Admin from "@/pages/Admin";
 import TrackOrder from "@/pages/TrackOrder";
+import PaymentSuccess from "@/pages/PaymentSuccess";
+import AuthCallback from "@/pages/AuthCallback";
 
 function App() {
   return (
@@ -24,9 +26,11 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/order" element={<Order />} />
             <Route path="/track-order" element={<TrackOrder />} />
+            <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/auth/callback" element={<AuthCallback />} />
           </Routes>
         </main>
         <Footer />

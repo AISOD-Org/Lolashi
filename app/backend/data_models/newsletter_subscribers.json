@@ -1,0 +1,17 @@
+{
+    "title": "newsletter_subscribers",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "autoIncrement": true
+        },
+        "email": {
+            "type": "string",
+            "maxLength": 200
+        }
+    },
+    "required": [
+        "email"
+    ]
+}

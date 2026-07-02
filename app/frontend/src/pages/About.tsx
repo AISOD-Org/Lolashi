@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { ArrowRight, BookOpen, Facebook, Instagram } from "lucide-react";
+import { ArrowRight, BookOpen, Facebook, Instagram, Cross } from "lucide-react";
 
 export default function About() {
   return (
     <div className="min-h-screen pt-20 md:pt-24">
       {/* Hero */}
-      <section className="py-16 md:py-20 bg-muted/30">
+      <section className="py-16 md:py-20 bg-muted/30 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection direction="left">
               <div className="flex justify-center">
                 <div className="relative">
                   <div className="absolute -inset-4 bg-primary/10 rounded-2xl blur-2xl" />
+                  <div className="absolute -inset-2 border border-primary/10 rounded-xl" />
                   <img
                     src="/assets/author-sam-tiliindje.jpeg"
                     alt="Sam Tiliindje - Author"
@@ -24,13 +26,16 @@ export default function About() {
             </AnimatedSection>
 
             <AnimatedSection direction="right">
-              <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">
-                About the Author
-              </p>
+              <div className="flex items-center gap-2 mb-3">
+                <Cross className="text-primary" size={16} />
+                <p className="text-primary font-semibold text-sm uppercase tracking-[0.15em]">
+                  About the Author
+                </p>
+              </div>
               <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
                 Sam Tiliindje
               </h1>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                 Author, veteran, and servant of the Lord Jesus Christ. Dedicated
                 to spreading the everlasting gospel to all four corners of the
                 world.
@@ -67,7 +72,7 @@ export default function About() {
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8">
               Biography
             </h2>
-            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
               <p>
                 Sam Tiliindje was born on August 15, 1980, in Lubango, Angola,
                 during the Namibian struggle for independence. Both his mother,
@@ -108,6 +113,16 @@ export default function About() {
         </div>
       </section>
 
+      {/* Scripture Divider */}
+      <section className="py-10 bg-secondary text-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xl md:text-2xl italic leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            &ldquo;And this gospel of the kingdom shall be preached in all the world for a witness unto all nations.&rdquo;
+          </p>
+          <p className="mt-2 text-white/60 text-sm uppercase tracking-widest">— Matthew 24:14</p>
+        </div>
+      </section>
+
       {/* Previous Books */}
       <section className="py-16 md:py-20 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -119,14 +134,14 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AnimatedSection delay={0.1}>
-              <div className="p-6 rounded-xl bg-white border border-border/50 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+              <div className="warm-card hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <BookOpen className="text-primary" size={24} />
                 </div>
                 <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
                   The Eternal Knowledge of God
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                   Sam&apos;s first published work exploring the depths of divine
                   wisdom and eternal truth.
                 </p>
@@ -134,14 +149,14 @@ export default function About() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="p-6 rounded-xl bg-white border border-border/50 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+              <div className="warm-card hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <BookOpen className="text-primary" size={24} />
                 </div>
                 <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
                   The Gardener
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                   Sam&apos;s second book, continuing his journey of sharing
                   spiritual insights through the written word.
                 </p>
@@ -153,7 +168,7 @@ export default function About() {
             <Link to="/order">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-10 py-6 shadow-lg shadow-primary/25"
+                className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-10 py-6 shadow-lg shadow-primary/20"
               >
                 Get His Latest Book — $20 USD
                 <ArrowRight className="ml-2" size={20} />

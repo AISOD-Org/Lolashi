@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { ArrowRight, BookOpen, Calendar, Globe, Hash, Layers, User } from "lucide-react";
+import { ArrowRight, BookOpen, Calendar, Globe, Hash, Layers, User, Cross } from "lucide-react";
 
 export default function BookDetails() {
   const bookInfo = [
@@ -18,13 +18,15 @@ export default function BookDetails() {
   return (
     <div className="min-h-screen pt-20 md:pt-24">
       {/* Header */}
-      <section className="py-16 md:py-20 bg-muted/30">
+      <section className="py-16 md:py-20 bg-muted/30 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection direction="left">
               <div className="flex justify-center">
                 <div className="relative">
                   <div className="absolute -inset-6 bg-primary/5 rounded-2xl blur-xl" />
+                  <div className="absolute -inset-3 border border-primary/10 rounded-xl" />
                   <img
                     src="https://mgx-backend-cdn.metadl.com/generate/images/1391967/2026-07-02/rvyrk6ycaipq/book-cover-illuminati-agenda.png"
                     alt="Illuminati One World Government Agenda Will Fail - Book Cover"
@@ -35,20 +37,23 @@ export default function BookDetails() {
             </AnimatedSection>
 
             <AnimatedSection direction="right">
-              <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">
-                The Book
-              </p>
+              <div className="flex items-center gap-2 mb-3">
+                <Cross className="text-primary" size={16} />
+                <p className="text-primary font-semibold text-sm uppercase tracking-[0.15em]">
+                  The Book
+                </p>
+              </div>
               <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-4">
                 Illuminati One World Government Agenda Will Fail
               </h1>
-              <p className="text-muted-foreground text-lg mb-6">
+              <p className="text-muted-foreground text-lg mb-6" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                 By Sam Tiliindje
               </p>
-              <p className="text-3xl font-bold text-primary mb-6">$20 USD</p>
+              <p className="text-3xl font-bold text-primary mb-6 font-serif">$20 USD</p>
               <Link to="/order">
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-6 shadow-lg shadow-primary/25"
+                  className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-6 shadow-lg shadow-primary/20"
                 >
                   Buy Now
                   <ArrowRight className="ml-2" size={20} />
@@ -71,9 +76,9 @@ export default function BookDetails() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {bookInfo.map((item, index) => (
               <AnimatedSection key={item.label} delay={index * 0.05}>
-                <div className="flex items-center gap-4 p-5 rounded-xl bg-card border border-border/50 hover:border-primary/20 transition-colors">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="text-primary" size={20} />
+                <div className="flex items-center gap-4 p-5 rounded-lg bg-card border border-border/50 hover:border-primary/20 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="text-primary" size={18} />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">{item.label}</p>
@@ -86,6 +91,16 @@ export default function BookDetails() {
         </div>
       </section>
 
+      {/* Scripture Divider */}
+      <section className="py-10 bg-secondary text-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xl md:text-2xl italic leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            &ldquo;The truth shall make you free.&rdquo;
+          </p>
+          <p className="mt-2 text-white/60 text-sm uppercase tracking-widest">— John 8:32</p>
+        </div>
+      </section>
+
       {/* Synopsis */}
       <section className="py-16 md:py-20 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,7 +108,7 @@ export default function BookDetails() {
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8">
               Book Synopsis
             </h2>
-            <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-5">
+            <div className="space-y-5 text-muted-foreground leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem' }}>
               <p>
                 This is Sam Tiliindje&apos;s third book, and it carries a message he
                 believes must reach not just millions, but billions of people
@@ -124,7 +139,7 @@ export default function BookDetails() {
             <Link to="/order">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-10 py-6 shadow-lg shadow-primary/25"
+                className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-10 py-6 shadow-lg shadow-primary/20"
               >
                 Order Your Copy — $20 USD
                 <ArrowRight className="ml-2" size={20} />
