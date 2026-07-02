@@ -17,6 +17,21 @@ export default function Order() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Save order to localStorage for admin dashboard
+    const existingOrders = JSON.parse(localStorage.getItem("lolashi_orders") || "[]");
+    const newOrder = {
+      id: existingOrders.length + 1,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      quantity: parseInt(formData.quantity || "1"),
+      total: parseInt(formData.quantity || "1") * 20,
+      date: new Date().toLocaleDateString(),
+      status: "Pending",
+    };
+    existingOrders.push(newOrder);
+    localStorage.setItem("lolashi_orders", JSON.stringify(existingOrders));
     setSubmitted(true);
   };
 
@@ -40,7 +55,10 @@ export default function Order() {
             shortly.
           </p>
           <Button
-            onClick={() => setSubmitted(false)}
+            onClick={() => {
+              setSubmitted(false);
+              setFormData({ name: "", email: "", phone: "", address: "", quantity: "1" });
+            }}
             variant="outline"
             className="!bg-transparent border-2 border-primary text-primary"
           >

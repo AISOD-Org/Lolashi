@@ -13,11 +13,11 @@ export default function About() {
             <AnimatedSection direction="left">
               <div className="flex justify-center">
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-primary/10 rounded-full blur-2xl" />
+                  <div className="absolute -inset-4 bg-primary/10 rounded-2xl blur-2xl" />
                   <img
                     src="/assets/author-sam-tiliindje.jpeg"
                     alt="Sam Tiliindje - Author"
-                    className="relative w-72 h-72 md:w-96 md:h-96 object-cover rounded-2xl shadow-2xl"
+                    className="relative w-72 h-80 md:w-96 md:h-[28rem] object-cover object-top rounded-2xl shadow-2xl"
                   />
                 </div>
               </div>

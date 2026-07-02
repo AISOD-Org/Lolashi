@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { BookOpen, Globe, Shield, ArrowRight } from "lucide-react";
+import { Newsletter } from "@/components/Newsletter";
 import { motion } from "framer-motion";
 
 export default function Index() {
@@ -69,7 +70,7 @@ export default function Index() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="!bg-transparent !hover:bg-transparent border-2 border-foreground/20 text-foreground font-semibold text-lg px-8 py-6"
+                    className="!bg-transparent border-2 border-foreground/20 text-foreground font-semibold text-lg px-8 py-6 hover:border-primary hover:text-primary"
                   >
                     Learn More
                   </Button>
@@ -202,7 +203,7 @@ export default function Index() {
                 </div>
               </div>
               <Link to="/book" className="inline-block mt-8">
-                <Button variant="outline" className="!bg-transparent !hover:bg-transparent border-2 border-primary text-primary font-semibold">
+                <Button variant="outline" className="!bg-transparent border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white">
                   View Full Details
                   <ArrowRight className="ml-2" size={16} />
                 </Button>
@@ -235,6 +236,9 @@ export default function Index() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Newsletter */}
+      <Newsletter />
     </div>
   );
 }
