@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { CheckCircle, ShieldCheck, BookOpen } from "lucide-react";
+import { CheckCircle, ShieldCheck, BookOpen, ArrowRight } from "lucide-react";
 
 export default function Order() {
   const [submitted, setSubmitted] = useState(false);
+  const [orderId, setOrderId] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,8 +21,9 @@ export default function Order() {
     e.preventDefault();
     // Save order to localStorage for admin dashboard
     const existingOrders = JSON.parse(localStorage.getItem("lolashi_orders") || "[]");
+    const newId = existingOrders.length + 1;
     const newOrder = {
-      id: existingOrders.length + 1,
+      id: newId,
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
@@ -32,6 +35,7 @@ export default function Order() {
     };
     existingOrders.push(newOrder);
     localStorage.setItem("lolashi_orders", JSON.stringify(existingOrders));
+    setOrderId(newId);
     setSubmitted(true);
   };
 
@@ -49,21 +53,37 @@ export default function Order() {
           <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">
             Order Received!
           </h2>
-          <p className="text-muted-foreground text-lg mb-6">
+          <p className="text-muted-foreground text-lg mb-2">
             Thank you for your order. We will contact you at{" "}
             <strong>{formData.email}</strong> with payment and delivery details
             shortly.
           </p>
-          <Button
-            onClick={() => {
-              setSubmitted(false);
-              setFormData({ name: "", email: "", phone: "", address: "", quantity: "1" });
-            }}
-            variant="outline"
-            className="!bg-transparent border-2 border-primary text-primary"
-          >
-            Place Another Order
-          </Button>
+          <div className="my-6 p-4 bg-primary/5 rounded-lg border border-primary/20">
+            <p className="text-sm text-muted-foreground mb-1">Your Order ID</p>
+            <p className="text-3xl font-bold text-primary">#{orderId}</p>
+            <p className="text-xs text-muted-foreground mt-2">
+              Save this ID to track your order status
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link to="/track-order">
+              <Button className="bg-primary hover:bg-primary/90 text-white font-semibold">
+                Track Your Order
+                <ArrowRight className="ml-2" size={16} />
+              </Button>
+            </Link>
+            <Button
+              onClick={() => {
+                setSubmitted(false);
+                setOrderId(null);
+                setFormData({ name: "", email: "", phone: "", address: "", quantity: "1" });
+              }}
+              variant="outline"
+              className="!bg-transparent border-2 border-primary text-primary"
+            >
+              Place Another Order
+            </Button>
+          </div>
         </AnimatedSection>
       </div>
     );

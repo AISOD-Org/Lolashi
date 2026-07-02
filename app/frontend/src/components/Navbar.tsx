@@ -9,6 +9,7 @@ const navLinks = [
   { path: "/book", label: "The Book" },
   { path: "/about", label: "About Author" },
   { path: "/order", label: "Order" },
+  { path: "/track-order", label: "Track Order" },
   { path: "/contact", label: "Contact" },
 ];
 
@@ -33,12 +34,12 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                   location.pathname === link.path
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -57,7 +58,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-md text-foreground hover:bg-muted transition-colors"
+            className="lg:hidden p-2 rounded-md text-foreground hover:bg-muted transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -73,7 +74,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
-            className="md:hidden bg-white border-b border-border overflow-hidden"
+            className="lg:hidden bg-white border-b border-border overflow-hidden"
           >
             <div className="px-4 py-4 space-y-2">
               {navLinks.map((link) => (

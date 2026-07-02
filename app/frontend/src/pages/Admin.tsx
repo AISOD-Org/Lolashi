@@ -19,14 +19,15 @@ interface Order {
 
 const ADMIN_PASSWORD = "lolashi2023";
 
+const STATUS_OPTIONS = ["Pending", "Processing", "Shipped", "Delivered"];
+
 export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
-  // Simulated orders from localStorage
-  const [orders] = useState<Order[]>(() => {
+  const [orders, setOrders] = useState<Order[]>(() => {
     const stored = localStorage.getItem("lolashi_orders");
     if (stored) {
       return JSON.parse(stored);
@@ -42,6 +43,14 @@ export default function Admin() {
     } else {
       setError("Incorrect password. Please try again.");
     }
+  };
+
+  const updateOrderStatus = (orderId: number, newStatus: string) => {
+    const updated = orders.map((o) =>
+      o.id === orderId ? { ...o, status: newStatus } : o
+    );
+    setOrders(updated);
+    localStorage.setItem("lolashi_orders", JSON.stringify(updated));
   };
 
   if (!isAuthenticated) {
@@ -231,9 +240,27 @@ export default function Admin() {
                         {order.date}
                       </td>
                       <td className="py-3 px-4">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                          {order.status}
-                        </span>
+                        <select
+                          value={order.status}
+                          onChange={(e) =>
+                            updateOrderStatus(order.id, e.target.value)
+                          }
+                          className={`text-xs font-medium rounded-full px-2.5 py-1 border-0 cursor-pointer ${
+                            order.status === "Pending"
+                              ? "bg-yellow-100 text-yellow-800"
+                              : order.status === "Processing"
+                              ? "bg-blue-100 text-blue-800"
+                              : order.status === "Shipped"
+                              ? "bg-purple-100 text-purple-800"
+                              : "bg-green-100 text-green-800"
+                          }`}
+                        >
+                          {STATUS_OPTIONS.map((s) => (
+                            <option key={s} value={s}>
+                              {s}
+                            </option>
+                          ))}
+                        </select>
                       </td>
                     </tr>
                   ))}
