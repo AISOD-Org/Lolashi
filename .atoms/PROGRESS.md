@@ -43,4 +43,11 @@ Book author website for Sam Tiliindje - white themed, animated, featuring book "
 - 2026-07-02: Redesigned entire site with religious, lively feel (Cinzel + Cormorant Garamond fonts, scripture quotes, warm palette, ornamental dividers)
 - 2026-07-02: Created payment success page with verification
 - 2026-07-02: Added AuthCallback route for Atoms Cloud auth
+- 2026-07-02: Added Testimonials section with reader reviews on homepage
+- 2026-07-02: Added Book Excerpt preview component with expandable chapters
+- 2026-07-02: Added FAQ page with 10 common questions
+- 2026-07-02: Added custom 404 page with scripture quote
+- 2026-07-02: Added BackToTop floating button
+- 2026-07-02: Added ShareButtons on Book Details page (Facebook, Twitter, LinkedIn, copy link)
+- 2026-07-02: Added FAQ link to navbar and footer
 

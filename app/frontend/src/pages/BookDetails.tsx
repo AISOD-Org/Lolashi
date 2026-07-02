@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ArrowRight, BookOpen, Calendar, Globe, Hash, Layers, User, Cross } from "lucide-react";
+import { ShareButtons } from "@/components/ShareButtons";
 
 export default function BookDetails() {
   const bookInfo = [
@@ -46,10 +47,13 @@ export default function BookDetails() {
               <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-4">
                 Illuminati One World Government Agenda Will Fail
               </h1>
-              <p className="text-muted-foreground text-lg mb-6" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              <p className="text-muted-foreground text-lg mb-4" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                 By Sam Tiliindje
               </p>
-              <p className="text-3xl font-bold text-primary mb-6 font-serif">$20 USD</p>
+              <p className="text-3xl font-bold text-primary mb-4 font-serif">$20 USD</p>
+              <div className="mb-6">
+                <ShareButtons />
+              </div>
               <Link to="/order">
                 <Button
                   size="lg"

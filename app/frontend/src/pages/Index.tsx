@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ArrowRight, BookOpen, Globe, Shield, Cross, Heart } from "lucide-react";
 import { Newsletter } from "@/components/Newsletter";
+import { Testimonials } from "@/components/Testimonials";
+import { BookExcerpt } from "@/components/BookExcerpt";
 import { motion } from "framer-motion";
 
 export default function Index() {
@@ -254,6 +256,12 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* Book Excerpt Preview */}
+      <BookExcerpt />
+
+      {/* Testimonials */}
+      <Testimonials />
 
       {/* CTA Section */}
       <section className="py-20 md:py-28 bg-white relative overflow-hidden">
