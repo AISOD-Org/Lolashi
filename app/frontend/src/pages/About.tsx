@@ -17,7 +17,8 @@ export default function About() {
                   <div className="absolute -inset-4 bg-primary/10 rounded-2xl blur-2xl" />
                   <div className="absolute -inset-2 border border-primary/10 rounded-xl" />
                   <img
-                    src="/assets/author-sam-tiliindje.jpeg"
+                    src="https://4eaae83ba1127aec0e0b9542aaad153d.oss.atoms.dev/author-sam-tiliindje.jpeg"
+
                     alt="Sam Tiliindje - Author"
                     className="relative w-72 h-80 md:w-96 md:h-[28rem] object-cover object-top rounded-2xl shadow-2xl"
                   />
