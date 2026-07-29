@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Lolashi</title>
+  <meta name="description" content="Contact Sam Tiliindje about the book or for any inquiries.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-content">
+        <a href="index.html" class="flex items-center gap-2" style="text-decoration:none;">
+          <img src="https://mgx-backend-cdn.metadl.com/generate/images/1391967/2026-07-02/rvyrlyacaipq/lion-logo-brand.png" alt="Lolashi Logo" style="height:2.5rem;width:2.5rem;object-fit:contain;">
+          <span class="font-semibold text-lg" style="font-family:'Cinzel',serif;color:var(--foreground);">Lolashi</span>
+        </a>
+        <div class="desktop-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="book.html" class="nav-link">The Book</a>
+          <a href="about.html" class="nav-link">About Author</a>
+          <a href="order.html" class="nav-link">Order</a>
+          <a href="faq.html" class="nav-link">FAQ</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </div>
+        <a href="order.html" class="btn btn-primary btn-sm hidden lg:flex" style="background-color:var(--primary);color:#fff;font-weight:500;">Buy Now — $20</a>
+        <button class="hamburger-btn" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-inner">
+          <a href="index.html" class="mobile-nav-link">Home</a>
+          <a href="book.html" class="mobile-nav-link">The Book</a>
+          <a href="about.html" class="mobile-nav-link">About Author</a>
+          <a href="order.html" class="mobile-nav-link">Order</a>
+          <a href="faq.html" class="mobile-nav-link">FAQ</a>
+          <a href="contact.html" class="mobile-nav-link active">Contact</a>
+          <a href="order.html" class="btn btn-primary btn-sm" style="background-color:var(--primary);color:#fff;text-align:center;margin-top:0.5rem;">Buy Now — $20</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="page-header-top-border"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="animate-on-scroll">
+          <div class="page-header-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <p class="page-header-label-text">Get in Touch</p>
+          </div>
+          <h1 class="page-header-title">Contact Us</h1>
+          <p class="page-header-subtitle scripture-font">Have questions about the book or want to connect with the author? We'd love to hear from you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="py-16 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="contact-grid">
+          <!-- Form -->
+          <div id="contact-form-section" class="animate-on-scroll" style="transform:translateX(-40px);">
+            <div class="warm-card">
+              <h2 class="text-2xl font-bold text-foreground mb-6" style="font-family:'Cinzel',serif;">Send a Message</h2>
+              <form id="contact-form" class="space-y-5">
+                <div>
+                  <label class="form-label" for="contact-name">Full Name</label>
+                  <input type="text" id="contact-name" name="name" required placeholder="Enter your full name" class="form-input h-12">
+                </div>
+                <div>
+                  <label class="form-label" for="contact-email">Email Address</label>
+                  <input type="email" id="contact-email" name="email" required placeholder="your@email.com" class="form-input h-12">
+                </div>
+                <div>
+                  <label class="form-label" for="contact-subject">Subject</label>
+                  <input type="text" id="contact-subject" name="subject" required placeholder="What is this about?" class="form-input h-12">
+                </div>
+                <div>
+                  <label class="form-label" for="contact-message">Message</label>
+                  <textarea id="contact-message" name="message" required rows="5" placeholder="Write your message here..." class="form-textarea"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full btn-shadow btn-text-lg btn-py-6" style="background-color:var(--primary);color:#fff;font-weight:600;font-size:1.125rem;padding:1.5rem 2rem;border-radius:var(--radius);">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Contact Success (hidden) -->
+          <div id="contact-success" style="display:none;">
+            <div class="text-center max-w-md mx-auto px-4 py-16">
+              <div class="message-success-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <h2 class="text-2xl font-bold text-foreground mb-4" style="font-family:'Cinzel',serif;">Message Sent!</h2>
+              <p class="text-lg scripture-font" style="color:var(--muted-foreground);font-family:'Cormorant Garamond',serif;">Thank you for reaching out. We'll get back to you as soon as possible.</p>
+              <button id="reset-contact-btn" class="btn btn-primary mt-6" style="background-color:var(--primary);color:#fff;font-weight:600;">
+                Send Another Message
+              </button>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div id="contact-info-section" class="animate-on-scroll" style="transform:translateX(40px);">
+            <div class="space-y-6">
+              <div class="warm-card">
+                <div class="contact-info-card">
+                  <div class="icon-circle" style="background-color:hsla(38,75%,42%,0.1);">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  </div>
+                  <div>
+                    <p class="contact-info-label">Email</p>
+                    <a href="mailto:samtiliindje@gmail.com" class="contact-info-value">samtiliindje@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+              <div class="warm-card">
+                <div class="contact-info-card">
+                  <div class="icon-circle" style="background-color:hsla(38,75%,42%,0.1);">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div>
+                    <p class="contact-info-label">Location</p>
+                    <p class="contact-info-value">Namibia</p>
+                  </div>
+                </div>
+              </div>
+              <div class="warm-card">
+                <div class="contact-info-card">
+                  <div class="icon-circle" style="background-color:rgba(37,99,235,0.1);">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color:#2563eb;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                  </div>
+                  <div>
+                    <p class="contact-info-label">Facebook</p>
+                    <a href="https://facebook.com/sam.tiliindje" target="_blank" rel="noopener noreferrer" class="contact-info-value">Sam Tiliindje</a>
+                  </div>
+                </div>
+              </div>
+              <div class="warm-card">
+                <div class="contact-info-card">
+                  <div class="icon-circle" style="background:linear-gradient(to bottom right,rgba(168,85,247,0.1),rgba(236,72,153,0.1));">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  </div>
+                  <div>
+                    <p class="contact-info-label">Instagram</p>
+                    <a href="https://instagram.com/babylonhavefallen" target="_blank" rel="noopener noreferrer" class="contact-info-value">@babylonhavefallen</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="footer-grid">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1391967/2026-07-02/rvyrlyacaipq/lion-logo-brand.png" alt="Lolashi Logo" style="height:2.5rem;width:2.5rem;object-fit:contain;filter:brightness(2);">
+            <span class="text-xl font-bold text-white" style="font-family:'Cinzel',serif;">Lolashi</span>
+          </div>
+          <p class="text-sm leading-relaxed mb-4 scripture-font" style="color:rgba(255,255,255,0.7);font-family:'Cormorant Garamond',serif;">Spreading the everlasting gospel of the Lord Jesus Christ through the written word.</p>
+          <div class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,0.4);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>Soli Deo Gloria</span></div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4" style="font-family:'Cinzel',serif;">Quick Links</h3>
+          <ul style="list-style:none;">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="book.html" class="footer-link">The Book</a></li>
+            <li><a href="about.html" class="footer-link">About Author</a></li>
+            <li><a href="order.html" class="footer-link">Order Now</a></li>
+            <li><a href="track-order.html" class="footer-link">Track Order</a></li>
+            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+            <li><a href="terms.html" class="footer-link">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4" style="font-family:'Cinzel',serif;">Connect</h3>
+          <div class="space-y-3">
+            <a href="mailto:samtiliindje@gmail.com" class="footer-contact-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>samtiliindje@gmail.com</a>
+            <a href="https://facebook.com/sam.tiliindje" target="_blank" rel="noopener noreferrer" class="footer-contact-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Sam Tiliindje</a>
+            <a href="https://instagram.com/babylonhavefallen" target="_blank" rel="noopener noreferrer" class="footer-contact-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>@babylonhavefallen</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="text-sm" style="color:rgba(255,255,255,0.5);">&copy; 2026 Sam Tiliindje. All rights reserved.</p>
+        <a href="terms.html" class="text-sm" style="color:rgba(255,255,255,0.5);transition:color 200ms;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

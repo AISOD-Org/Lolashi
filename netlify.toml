@@ -1,8 +1,0 @@
-[build]
-  command = "cd app/frontend && pnpm install && pnpm run build"
-  publish = "app/frontend/dist"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
