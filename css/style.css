@@ -2511,3 +2511,19 @@ svg {
     hyphens: auto;
   }
 }
+
+/* Hero section: account for fixed navbar on all screen sizes */
+.hero-section {
+  padding-top: 5rem;
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    padding-top: 4rem;
+    min-height: 100vh;
+    align-items: flex-start;
+  }
+  .hero-grid {
+    padding-top: 1.5rem;
+  }
+}
