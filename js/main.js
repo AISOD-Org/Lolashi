@@ -364,7 +364,7 @@
   if (quantityInput && totalDisplay) {
     quantityInput.addEventListener('input', function() {
       var qty = parseInt(this.value) || 1;
-      totalDisplay.textContent = '$' + (qty * 20) + ' USD';
+      totalDisplay.textContent = 'USD ' + (qty * 20);
     });
   }
 

@@ -2527,3 +2527,129 @@ svg {
     padding-top: 1.5rem;
   }
 }
+
+/* ============================================
+   GLOBAL RESPONSIVE FIXES — prevent content cutoff
+   ============================================ */
+
+/* Ensure all page content has proper top spacing below fixed navbar */
+.page-header {
+  margin-top: 4rem;
+}
+@media (min-width: 768px) {
+  .page-header {
+    margin-top: 5rem;
+  }
+}
+
+/* Prevent horizontal overflow on all pages */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure text wraps properly on mobile everywhere */
+@media (max-width: 640px) {
+  /* Prevent text overflow in buttons and labels */
+  .btn-primary,
+  .btn-outline-primary,
+  .nav-link,
+  .mobile-nav-link {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Fix card and grid content overflow */
+  .warm-card,
+  .faq-item {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Prevent form inputs from overflowing */
+  input, textarea, select {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Fix grid layouts on small screens */
+  .about-grid,
+  .order-grid,
+  .contact-grid,
+  .features-grid,
+  .testimonials-grid,
+  .previous-works-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+
+  /* Fix flex layouts that may overflow */
+  .flex.items-center.gap-4,
+  .flex.items-start.gap-4,
+  .flex.items-start.gap-6,
+  .flex.items-start.gap-8 {
+    flex-wrap: wrap;
+  }
+
+  /* Ensure page sections don't overflow */
+  .max-w-4xl,
+  .max-w-7xl,
+  .max-w-3xl,
+  .max-w-2xl {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Fix text sizes that may be too large */
+  .text-4xl { font-size: 1.75rem; }
+  .text-5xl { font-size: 2rem; }
+  .text-6xl { font-size: 2.25rem; }
+  .text-8xl { font-size: 2.5rem; line-height: 1.2; }
+  .text-9xl { font-size: 2.5rem; line-height: 1.2; }
+
+  /* Fix hero text on very small screens */
+  .hero-heading {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Fix long text in track order results */
+  #result-email,
+  #result-name {
+    word-break: break-all;
+    max-width: 60%;
+    text-align: right;
+  }
+
+  /* Fix order total display */
+  #order-total {
+    font-size: 1.5rem !important;
+  }
+
+  /* Fix footer grid */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+
+  /* Ensure hero buttons stack on mobile */
+  .hero-fade-in.flex.flex-col.sm\:flex-row {
+    flex-direction: column !important;
+    align-items: center;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 767px) {
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem;
+  }
+}
