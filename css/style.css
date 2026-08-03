@@ -529,7 +529,7 @@ input, textarea, select {
   .md\:px-8 { padding-left: 2rem; padding-right: 2rem; }
   .md\:p-8 { padding: 2rem; }
   .md\:gap-12 { gap: 3rem; }
-  .md\:text-8xl { font-size: 6rem; line-height: 1; }
+  .md\:text-8xl { font-size: 4rem; line-height: 1.1; }
   .md\:text-5xl { font-size: 3rem; line-height: 1; }
   .md\:font-bold { font-weight: 700; }
   .md\:leading-\[1\.1\] { line-height: 1.1; }
@@ -2541,6 +2541,29 @@ svg {
 /* Hero section: account for fixed navbar on all screen sizes */
 .hero-section {
   padding-top: 5rem;
+}
+
+/* Hero grid columns should not overflow */
+@media (min-width: 1024px) {
+  .hero-grid > div:first-child {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Scale down hero title on desktop to prevent cutoff */
+@media (min-width: 1200px) {
+  .hero-section h1 {
+    font-size: 4rem !important;
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-section h1 {
+    font-size: 4.5rem !important;
+    line-height: 1.1;
+  }
 }
 
 @media (max-width: 767px) {
