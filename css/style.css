@@ -2572,15 +2572,47 @@ html, body {
     box-sizing: border-box;
   }
 
-  /* Fix grid layouts on small screens */
+  /* Fix ALL grid layouts on small screens — force single column */
   .about-grid,
   .order-grid,
   .contact-grid,
   .features-grid,
   .testimonials-grid,
-  .previous-works-grid {
+  .testimonials-grid .testimonials-grid-inner,
+  .previous-works-grid,
+  .book-preview-grid,
+  .hero-grid,
+  .book-details-grid,
+  .stats-grid,
+  .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem;
+  }
+
+  /* Center the book cover image on mobile */
+  .hero-grid > div:last-child,
+  .book-preview-grid > div:first-child {
+    display: flex !important;
+    justify-content: center;
+  }
+
+  /* Ensure image-with-deco is centered on mobile */
+  .image-with-deco {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .image-with-deco img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Prevent deco-border from overflowing */
+  .image-with-deco .deco-border {
+    width: 3rem;
+    height: 3rem;
   }
 
   /* Fix flex layouts that may overflow */
@@ -2595,7 +2627,8 @@ html, body {
   .max-w-4xl,
   .max-w-7xl,
   .max-w-3xl,
-  .max-w-2xl {
+  .max-w-2xl,
+  .max-w-lg {
     max-width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -2614,6 +2647,32 @@ html, body {
     line-height: 1.2 !important;
   }
 
+  /* Fix book cover image sizing on mobile */
+  .book-cover-img {
+    width: 14rem !important;
+    max-width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Ensure the About the Book text section is properly spaced */
+  .book-preview-grid > div:last-child {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Fix the features cards spacing */
+  .features-grid .warm-card,
+  .testimonials-grid .warm-card {
+    padding: 1.25rem;
+  }
+
+  /* Fix section padding on mobile */
+  section.py-16, section.py-20 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
   /* Fix long text in track order results */
   #result-email,
   #result-name {
@@ -2627,16 +2686,16 @@ html, body {
     font-size: 1.5rem !important;
   }
 
-  /* Fix footer grid */
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-  }
-
   /* Ensure hero buttons stack on mobile */
   .hero-fade-in.flex.flex-col.sm\:flex-row {
     flex-direction: column !important;
     align-items: center;
+  }
+
+  /* Prevent ornamental divider from overflowing */
+  .ornament-divider {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
