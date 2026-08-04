@@ -1033,7 +1033,7 @@ input, textarea, select {
 }
 
 .section-subtitle {
-  color: var(--muted-foreground);
+  color: hsl(20 15% 35%) !important;
   font-size: 1.125rem;
   max-width: 42rem;
   margin-left: auto;
