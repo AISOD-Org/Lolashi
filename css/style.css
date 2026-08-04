@@ -3117,3 +3117,129 @@ main {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ============================================
+   FINAL MOBILE ALIGNMENT & RESPONSIVE FIXES
+   ============================================ */
+
+@media (max-width: 767px) {
+  /* 1. Global Centering & Spacing */
+  .container, .max-w-7xl, .max-w-4xl, .max-w-3xl, .max-w-2xl {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Fix Grid Layouts - Ensure Single Column & No Overflow */
+  .hero-grid, .features-grid, .book-preview-grid, .testimonials-grid, 
+  .about-grid, .book-details-grid, .order-grid, .contact-grid, .footer-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* 3. Hero Section Alignment */
+  .hero-section {
+    text-align: center !important;
+    padding-top: 5rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  .hero-section .flex-col.sm\:flex-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .hero-section h1 {
+    font-size: 2.25rem !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero-section .max-w-lg {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* 4. Book Cover & Images Centering */
+  .book-cover-wrapper {
+    margin: 2rem auto 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .book-cover-img {
+    max-width: 12rem !important;
+    height: auto !important;
+  }
+
+  .image-with-deco {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+  }
+
+  /* 5. Typography Fixes */
+  .section-title, .page-header-title {
+    font-size: 1.85rem !important;
+    text-align: center !important;
+    word-break: break-word !important;
+  }
+
+  .section-subtitle, .page-header-subtitle {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* 6. Animations Fix - Prevent horizontal shift */
+  .animate-on-scroll {
+    transform: none !important;
+    transition: opacity 0.6s ease-out !important;
+  }
+  
+  .animate-on-scroll.visible {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* 7. Navbar Adjustments */
+  .navbar-content {
+    padding: 0 1rem !important;
+  }
+
+  /* 8. Card Padding */
+  .warm-card {
+    padding: 1.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 9. Order Form Alignment */
+  .order-summary {
+    width: 100% !important;
+    margin-top: 2rem !important;
+  }
+
+  /* 10. Footer Centering */
+  .footer-grid > div {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+}
