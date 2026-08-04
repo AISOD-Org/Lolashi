@@ -159,6 +159,7 @@
         status: 'Pending'
       });
       localStorage.setItem('lolashi_orders', JSON.stringify(stored));
+      localStorage.setItem('lolashi_paid', 'true');
 
       // Show success state
       const formSection = document.getElementById('order-form-section');

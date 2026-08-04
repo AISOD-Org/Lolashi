@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read Online - Illuminati One World Government Agenda Will Fail</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/turn.min.js"></script>
+  <style>
+    :root {
+      --reader-bg: #1a1a1a;
+      --reader-accent: var(--primary);
+    }
+    body {
+      background-color: var(--reader-bg);
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Lora', serif;
+      color: white;
+    }
+    .reader-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: white;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .back-btn:hover {
+      color: var(--primary);
+    }
+    .book-title {
+      flex: 1;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .book-title { display: block; }
+    }
+    #flipbook-viewport {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 60px;
+      padding-bottom: 80px;
+      box-sizing: border-box;
+    }
+    #flipbook {
+      width: 922px;
+      height: 600px;
+      box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    }
+    #flipbook .page {
+      width: 461px;
+      height: 600px;
+      background-color: white;
+      overflow: hidden;
+    }
+    #flipbook .page img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background-color: #f0f0f0;
+    }
+    .reader-controls {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      z-index: 1000;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .control-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s, background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .control-btn:hover {
+      background: hsl(38, 75%, 35%);
+    }
+    .control-btn:active {
+      transform: scale(0.95);
+    }
+    .control-btn:disabled {
+      background: #444;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+    .page-info {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      min-width: 120px;
+      text-align: center;
+    }
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--reader-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      transition: opacity 0.5s;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255,255,255,0.1);
+      border-left-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-overlay" id="loading">
+    <div class="spinner"></div>
+    <p style="font-family: 'Cinzel', serif;">Opening the Book of Revelation...</p>
+  </div>
+
+  <header class="reader-header">
+    <a href="book.html" class="back-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Exit Reader
+    </a>
+    <div class="book-title">Illuminati One World Government Agenda Will Fail</div>
+  </header>
+
+  <main id="flipbook-viewport">
+    <div id="flipbook">
+      <!-- Pages will be injected by JS -->
+    </div>
+  </main>
+
+  <footer class="reader-controls">
+    <button id="prev-btn" class="control-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Prev
+    </button>
+    <div class="page-info">
+      <span id="current-page">1</span> / 178
+    </div>
+    <button id="next-btn" class="control-btn">
+      Next
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+  </footer>
+
+  <script>
+    $(document).ready(function() {
+      // Security Check
+      if (localStorage.getItem('lolashi_paid') !== 'true') {
+        window.location.href = 'order.html';
+        return;
+      }
+
+      const totalPages = 178;
+      const $flipbook = $('#flipbook');
+      
+      // Inject pages
+      for (let i = 1; i <= totalPages; i++) {
+        const pageNum = i.toString().padStart(3, '0');
+        const $page = $('<div class="page"></div>');
+        $page.append(`<img src="images/book_pages/page-${pageNum}.jpg" alt="Page ${i}" loading="lazy">`);
+        $flipbook.append($page);
+      }
+
+      // Initialize Turn.js
+      $flipbook.turn({
+        width: 922,
+        height: 600,
+        autoCenter: true,
+        display: 'double',
+        acceleration: true,
+        gradients: true,
+        elevation: 50,
+        duration: 1000,
+        when: {
+          turned: function(event, page, view) {
+            $('#current-page').text(page);
+            $('#prev-btn').prop('disabled', page === 1);
+            $('#next-btn').prop('disabled', page === totalPages);
+          }
+        }
+      });
+
+      // Controls
+      $('#prev-btn').click(function() { $flipbook.turn('previous'); });
+      $('#next-btn').click(function() { $flipbook.turn('next'); });
+
+      // Keyboard
+      $(window).bind('keydown', function(e) {
+        if (e.keyCode == 37) $flipbook.turn('previous');
+        else if (e.keyCode == 39) $flipbook.turn('next');
+      });
+
+      // Responsive Resize
+      function resize() {
+        const winW = $(window).width();
+        const winH = $(window).height();
+        const headerH = 60;
+        const footerH = 80;
+        const availableW = winW * 0.95;
+        const availableH = winH - headerH - footerH - 40;
+
+        let display = 'double';
+        let ratio = 1.53; // 922/600
+
+        if (winW < 768) {
+          display = 'single';
+          ratio = 0.76; // 461/600
+        }
+
+        let newWidth = availableW;
+        let newHeight = availableW / ratio;
+
+        if (newHeight > availableH) {
+          newHeight = availableH;
+          newWidth = availableH * ratio;
+        }
+
+        $flipbook.turn('display', display);
+        $flipbook.turn('size', newWidth, newHeight);
+      }
+
+      $(window).resize(resize);
+      
+      // Initial hide loading
+      setTimeout(function() {
+        $('#loading').css('opacity', '0');
+        setTimeout(function() { $('#loading').hide(); }, 500);
+        resize();
+      }, 1500);
+    });
+  </script>
+<script src="js/auth-check.js"></script></body>
+</html>
