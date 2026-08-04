@@ -19,7 +19,7 @@
   --secondary: hsl(350 45% 28%);
   --secondary-foreground: hsl(0 0% 100%);
   --muted: hsl(35 15% 93%);
-  --muted-foreground: hsl(20 8% 46%);
+  --muted-foreground: hsl(20 12% 38%);
   --accent: hsl(350 50% 35%);
   --accent-foreground: hsl(0 0% 100%);
   --destructive: hsl(0 84.2% 60.2%);
@@ -269,7 +269,10 @@ input, textarea, select {
 .text-2xl { font-size: 1.5rem; line-height: 2rem; }
 .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
 .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.text-5xl { font-size: 3rem; line-height: 1; }
+.text-6xl { font-size: 3.75rem; line-height: 1; }
 .text-7xl { font-size: 4.5rem; line-height: 1.1; }
+.text-8xl { font-size: 6rem; line-height: 1; }
 .text-\[3\.5rem\] { font-size: 3.5rem; }
 
 .font-medium { font-weight: 500; }
@@ -484,6 +487,18 @@ input, textarea, select {
   .sm\:h-80 { height: 20rem; }
   .sm\:w-80 { width: 20rem; }
   .sm\:flex { display: flex; }
+  .sm\:px-4 { padding-left: 1rem; padding-right: 1rem; }
+  .sm\:py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+  .sm\:text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+  .sm\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+  .sm\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+  .sm\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .sm\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+  .sm\:items-start { align-items: flex-start; }
+  .sm\:gap-4 { gap: 1rem; }
+  .sm\:text-center { text-align: center; }
+  .sm\:text-left { text-align: left; }
+  .sm\:block { display: block; }
 }
 
 @media (min-width: 768px) {
@@ -514,7 +529,13 @@ input, textarea, select {
   .md\:px-8 { padding-left: 2rem; padding-right: 2rem; }
   .md\:p-8 { padding: 2rem; }
   .md\:gap-12 { gap: 3rem; }
-  .md\:text-8xl { font-size: 6rem; line-height: 1; }
+  .md\:text-8xl { font-size: 4rem; line-height: 1.1; }
+  .md\:text-5xl { font-size: 3rem; line-height: 1; }
+  .md\:font-bold { font-weight: 700; }
+  .md\:leading-\[1\.1\] { line-height: 1.1; }
+  .md\:text-6xl { font-size: 3.75rem; line-height: 1; }
+  .md\:block { display: block; }
+  .md\:text-\[28rem\] { height: 28rem; }
 }
 
 @media (min-width: 1024px) {
@@ -1000,6 +1021,11 @@ input, textarea, select {
   font-weight: 700;
   color: var(--foreground);
   margin-bottom: 1rem;
+}
+
+/* Section subtitle should be readable */
+.section-subtitle {
+  color: hsl(20 15% 35%) !important;
 }
 
 @media (min-width: 768px) {
@@ -2026,7 +2052,7 @@ svg {
 }
 
 .testimonial-text {
-  color: var(--muted-foreground);
+  color: hsl(20 15% 35%) !important;
   line-height: 1.625;
   flex: 1;
   margin-bottom: 1.5rem;
@@ -2498,7 +2524,7 @@ svg {
 /* Hero heading: scale down on small screens */
 @media (max-width: 767px) {
   .text-7xl {
-    font-size: 2.25rem;
+    font-size: 2rem;
     line-height: 1.15;
   }
 }
@@ -2515,6 +2541,29 @@ svg {
 /* Hero section: account for fixed navbar on all screen sizes */
 .hero-section {
   padding-top: 5rem;
+}
+
+/* Hero grid columns should not overflow */
+@media (min-width: 1024px) {
+  .hero-grid > div:first-child {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Scale down hero title on desktop to prevent cutoff */
+@media (min-width: 1200px) {
+  .hero-section h1 {
+    font-size: 4rem !important;
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-section h1 {
+    font-size: 4.5rem !important;
+    line-height: 1.1;
+  }
 }
 
 @media (max-width: 767px) {
@@ -2534,11 +2583,11 @@ svg {
 
 /* Ensure all page content has proper top spacing below fixed navbar */
 .page-header {
-  margin-top: 4rem;
+  padding-top: 4rem !important;
 }
 @media (min-width: 768px) {
   .page-header {
-    margin-top: 5rem;
+    padding-top: 5rem !important;
   }
 }
 
@@ -2546,6 +2595,309 @@ svg {
 html, body {
   overflow-x: hidden;
   width: 100%;
+}
+
+/* ===== HERO SECTION FIXES ===== */
+.hero-section {
+  overflow: hidden;
+}
+
+.hero-section .container {
+  max-width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.hero-section h1 {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Scale hero heading on medium screens to prevent cutoff */
+@media (max-width: 1200px) {
+  .hero-section h1 {
+    font-size: 3rem !important;
+    line-height: 1.15;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section h1 {
+    font-size: 2rem !important;
+    line-height: 1.15;
+  }
+  .book-cover-wrapper {
+    margin-top: 2rem;
+  }
+  .book-cover-img {
+    width: 14rem;
+  }
+}
+
+/* ===== PAGE HEADER FIXES ===== */
+.page-header-title {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .page-header-title {
+    font-size: 1.75rem !important;
+    line-height: 1.2;
+  }
+}
+
+/* ===== SCRIPTURE BANNER FIXES ===== */
+.scripture-banner {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.scripture-banner .max-w-4xl {
+  max-width: 100%;
+}
+
+.scripture-banner-text {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .scripture-banner-text {
+    font-size: 1.25rem;
+  }
+}
+
+/* ===== BOOK PREVIEW SECTION FIXES ===== */
+.book-preview-grid {
+  gap: 2rem;
+}
+
+.book-preview-grid > div {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.book-preview-grid img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-with-deco {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.image-with-deco img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-with-deco .deco-border {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .image-with-deco .deco-border {
+    display: block;
+  }
+}
+
+/* ===== ABOUT PAGE FIXES ===== */
+.about-grid {
+  align-items: start;
+}
+
+.about-grid .scripture-font {
+  color: var(--muted-foreground) !important;
+}
+
+.about-grid p {
+  line-height: 1.7;
+}
+
+/* Biography section text readability — make text darker for readability */
+.scripture-font {
+  color: hsl(20 15% 35%) !important;
+}
+
+/* Keep white text in newsletter section */
+.newsletter-section .scripture-font,
+.newsletter-section p,
+.newsletter-section .text-lg {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.newsletter-section .text-white,
+.newsletter-section h2,
+.newsletter-section h3 {
+  color: #ffffff !important;
+}
+
+.newsletter-section .text-xs {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Footer text colors */
+.footer .scripture-font {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.footer .text-sm {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.footer .text-white {
+  color: #ffffff !important;
+}
+
+.footer .text-xs {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.footer-contact-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Section headings should always be visible (except in newsletter/footer) */
+section h2 {
+  color: var(--foreground) !important;
+}
+
+.newsletter-section h2 {
+  color: #ffffff !important;
+}
+
+section h3 {
+  color: var(--foreground) !important;
+}
+
+.newsletter-section h3 {
+  color: #ffffff !important;
+}
+
+/* ===== BOOK DETAILS FIXES ===== */
+.book-details-grid {
+  gap: 2rem;
+}
+
+.book-details-grid > div {
+  max-width: 100%;
+}
+
+.book-info-grid {
+  overflow-wrap: break-word;
+}
+
+/* ===== SECTION TITLE VISIBILITY ===== */
+.section-title {
+  color: var(--foreground) !important;
+}
+
+.section-label-text {
+  color: var(--primary) !important;
+}
+
+/* ===== FOOTER FIXES ===== */
+.footer-bottom {
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-wrap: nowrap;
+    text-align: left;
+  }
+}
+
+/* ===== CTA SECTION FIXES ===== */
+.cta-section h2 {
+  color: var(--foreground) !important;
+}
+
+/* ===== ORDER PAGE FIXES ===== */
+.order-summary {
+  position: static;
+}
+
+@media (min-width: 1024px) {
+  .order-summary {
+    position: sticky;
+    top: 7rem;
+  }
+}
+
+.book-preview {
+  flex-wrap: wrap;
+}
+
+.book-preview-title {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* ===== CONTACT PAGE FIXES ===== */
+.contact-info-card {
+  flex-wrap: wrap;
+}
+
+.contact-info-value {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ===== MAIN CONTENT SPACING ===== */
+main {
+  margin-top: 0 !important;
+}
+
+.main-content {
+  margin-top: 0 !important;
+}
+
+/* ===== GENERAL OVERFLOW PREVENTION ===== */
+.container,
+.max-w-7xl,
+.max-w-4xl,
+.max-w-3xl,
+.max-w-2xl {
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container,
+  .max-w-7xl,
+  .max-w-4xl,
+  .max-w-3xl,
+  .max-w-2xl {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container,
+  .max-w-7xl,
+  .max-w-4xl,
+  .max-w-3xl,
+  .max-w-2xl {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 /* Ensure text wraps properly on mobile everywhere */
@@ -2638,8 +2990,8 @@ html, body {
   .text-4xl { font-size: 1.75rem; }
   .text-5xl { font-size: 2rem; }
   .text-6xl { font-size: 2.25rem; }
-  .text-8xl { font-size: 2.5rem; line-height: 1.2; }
-  .text-9xl { font-size: 2.5rem; line-height: 1.2; }
+  .text-7xl { font-size: 2rem; line-height: 1.2; }
+  .text-8xl { font-size: 2.25rem; line-height: 1.2; }
 
   /* Fix hero text on very small screens */
   .hero-heading {
@@ -2710,5 +3062,58 @@ html, body {
   .footer-grid {
     grid-template-columns: 1fr 1fr !important;
     gap: 2rem;
+  }
+}
+
+/* Medium screen tablet adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2.75rem !important;
+  }
+
+  .book-preview-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .book-details-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .book-cover-img {
+    width: 16rem;
+  }
+
+  .author-image {
+    width: 18rem;
+    height: 20rem;
+  }
+
+  .page-header-title {
+    font-size: 2rem !important;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .order-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .content-grid-2 {
+    grid-template-columns: 1fr !important;
   }
 }
